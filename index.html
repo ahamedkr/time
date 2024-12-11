@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="card.css">
+    <script>
+        let display; // Variable to store the interval reference
+
+        function showtime() {
+            let t = new Date();
+            let time = t.toLocaleTimeString();
+            document.getElementById("int").value = time; // Update the input field
+        }
+
+        function start() {
+            // Start updating the time every second
+            display = setInterval(showtime, 1000);
+        }
+
+        function action() {
+            // Stop updating the time
+            clearInterval(display);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <input type="text" id="int" value="00:00:00" readonly>
+            <button id="start" onclick="start()">Start</button>
+            <button id="stop" onclick="action()">Stop</button>
+        </div>
+    </div>
+</body>
+</html>
